@@ -10,7 +10,9 @@ Public void prepayment(){
 Public void getEMI(){
 }
 
-
+public void ApproveLoan(){
+    
+}
 
 
 }

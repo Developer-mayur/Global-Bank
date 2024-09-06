@@ -7,4 +7,8 @@ private String  Address ;
 private int Phone ;
 
 
+public void Request_Loan(){
+
+}
+
 }
