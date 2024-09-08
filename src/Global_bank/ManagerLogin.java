@@ -1,18 +1,18 @@
-  package Global_bank;
+   package Global_bank;
 
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.sql.*;
 
-public class Login extends JFrame implements ActionListener {
+public class ManagerLogin extends JFrame implements ActionListener {
     JLabel l1, l2, l3;
     JTextField tf1;
     JPasswordField pf2;
     JButton b1, b2, b3;
 
-    Login() {
-        setTitle("CUSTOMER LOGIN");
+    ManagerLogin() {
+        setTitle("Manager LOGIN");
 
         
         BackgroundPanel backgroundPanel = new BackgroundPanel("GlobalBank/icons/background.jpg");
@@ -113,7 +113,7 @@ public class Login extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        new Login().setVisible(true);
+        new ManagerLogin().setVisible(true);
     }
 
     // Custom JPanel class to handle background image
