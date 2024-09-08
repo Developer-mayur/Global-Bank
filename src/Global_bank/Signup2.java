@@ -15,7 +15,9 @@ public class Signup2 extends JFrame implements ActionListener{
     JComboBox c1,c2,c3,c4,c5;
     String formno;
     Signup2(String formno){
-        
+         Signup2.BackgroundPanel backgroundPanel = new Signup2.BackgroundPanel("GlobalBank/icons/g.png");
+        backgroundPanel.setLayout(null); 
+        setContentPane(backgroundPanel);
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("GlobalBank/icons/banking.png"));
         Image i2 = i1.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT);
         ImageIcon i3 = new ImageIcon(i2);
@@ -129,7 +131,7 @@ public class Signup2 extends JFrame implements ActionListener{
         l13.setBounds(760,10,60,30);
         add(l13);
         
-        l1.setBounds(280,30,600,40);
+        l1.setBounds(280,30,600,80);
         add(l1);
         
         l2.setBounds(100,120,100,30);
@@ -238,7 +240,7 @@ public class Signup2 extends JFrame implements ActionListener{
             }else{
                 Conn c1 = new Conn();
                 String q1 = "insert into signup2 values('"+formno+"','"+religion+"','"+category+"','"+income+"','"+education+"','"+occupation+"','"+pan+"','"+aadhar+"','"+scitizen+"','"+eaccount+"')";
-                c1.s.executeUpdate(q1);
+//                c1.s.executeUpdate(q1);
                 
                 new Signup3(formno).setVisible(true);
                 setVisible(false);
@@ -256,5 +258,18 @@ public class Signup2 extends JFrame implements ActionListener{
     
     public static void main(String[] args){
         new Signup2("").setVisible(true);
+    }
+    class BackgroundPanel extends JPanel {
+        private Image backgroundImage;
+
+        public BackgroundPanel(String imagePath) {
+            this.backgroundImage = new ImageIcon(ClassLoader.getSystemResource(imagePath)).getImage();
+        }
+
+        @Override
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
+        }
     }
 }

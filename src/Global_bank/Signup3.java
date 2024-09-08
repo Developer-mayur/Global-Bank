@@ -17,8 +17,11 @@ public class Signup3 extends JFrame implements ActionListener{
     Signup3(String formno){
         this.formno = formno;
         setTitle("NEW ACCOUNT APPLICATION FORM - PAGE 3");
+        Signup3.BackgroundPanel backgroundPanel = new Signup3.BackgroundPanel("GlobalBank/icons/g.png");
+        backgroundPanel.setLayout(null); 
+        setContentPane(backgroundPanel);
     
-        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("ASimulatorSystem/icons/logo.jpg"));
+        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("GlobalBank/icons/banking.png"));
         Image i2 = i1.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT);
         ImageIcon i3 = new ImageIcon(i2);
         JLabel l14 = new JLabel(i3);
@@ -131,7 +134,7 @@ public class Signup3 extends JFrame implements ActionListener{
         l12.setBounds(770,10,40,30);
         add(l12);
         
-        l1.setBounds(280,40,400,40);
+        l1.setBounds(280,40,400,80);
         add(l1); 
         
         l2.setBounds(100,140,200,30);
@@ -262,8 +265,8 @@ public class Signup3 extends JFrame implements ActionListener{
                     Conn c1 = new Conn();
                     String q1 = "insert into signup3 values('"+formno+"','"+atype+"','"+cardno+"','"+pin+"','"+facility+"')";  
                     String q2 = "insert into login values('"+formno+"','"+cardno+"','"+pin+"')";
-                    c1.s.executeUpdate(q1);
-                    c1.s.executeUpdate(q2);
+//                    c1.s.executeUpdate(q1);
+//                    c1.s.executeUpdate(q2);
                     JOptionPane.showMessageDialog(null, "Card Number: " + cardno + "\n Pin:"+ pin);
                     
                     new Deposit(pin).setVisible(true);
@@ -282,6 +285,19 @@ public class Signup3 extends JFrame implements ActionListener{
     
     public static void main(String[] args){
         new Signup3("").setVisible(true);
+    }
+    class BackgroundPanel extends JPanel {
+        private Image backgroundImage;
+
+        public BackgroundPanel(String imagePath) {
+            this.backgroundImage = new ImageIcon(ClassLoader.getSystemResource(imagePath)).getImage();
+        }
+
+        @Override
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
+        }
     }
     
 }

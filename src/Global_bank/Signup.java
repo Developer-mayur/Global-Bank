@@ -23,8 +23,11 @@ public class Signup extends JFrame implements ActionListener{
     Signup(){
         
         setTitle("NEW ACCOUNT APPLICATION FORM");
+         Signup.BackgroundPanel backgroundPanel = new Signup.BackgroundPanel("GlobalBank/icons/g.png");
+        backgroundPanel.setLayout(null); 
+        setContentPane(backgroundPanel);
         
-        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource(""));
+        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("GlobalBank/icons/banking.png"));
         Image i2 = i1.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT);
         ImageIcon i3 = new ImageIcon(i2);
         JLabel l11 = new JLabel(i3);
@@ -141,10 +144,10 @@ public class Signup extends JFrame implements ActionListener{
 	add(dateChooser);
         
         setLayout(null);
-        l1.setBounds(140,20,600,40);
+        l1.setBounds(140,20,600,100);
         add(l1);
         
-        l2.setBounds(290,80,600,30);
+        l2.setBounds(290,80,600,60);
         add(l2);
         
         l3.setBounds(100,140,100,30);
@@ -265,7 +268,7 @@ public class Signup extends JFrame implements ActionListener{
             }else{
                 Conn c1 = new Conn();
                 String q1 = "insert into signup values('"+formno+"','"+name+"','"+fname+"','"+dob+"','"+gender+"','"+email+"','"+marital+"','"+address+"','"+city+"','"+pincode+"','"+state+"')";
-                c1.s.executeUpdate(q1);
+//                c1.s.executeUpdate(q1);
                 
                 new Signup2(first).setVisible(true);
                 setVisible(false);
@@ -280,5 +283,18 @@ public class Signup extends JFrame implements ActionListener{
     
     public static void main(String[] args){
         new Signup().setVisible(true);
+    }
+    class BackgroundPanel extends JPanel {
+        private Image backgroundImage;
+
+        public BackgroundPanel(String imagePath) {
+            this.backgroundImage = new ImageIcon(ClassLoader.getSystemResource(imagePath)).getImage();
+        }
+
+        @Override
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
+        }
     }
 }
