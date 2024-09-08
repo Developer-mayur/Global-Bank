@@ -1,4 +1,4 @@
-   package Global_bank;
+ package Global_bank;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -14,12 +14,11 @@ public class ManagerLogin extends JFrame implements ActionListener {
     ManagerLogin() {
         setTitle("Manager LOGIN");
 
-        
-        BackgroundPanel backgroundPanel = new BackgroundPanel("GlobalBank/icons/background.jpg");
+        BackgroundPanel backgroundPanel = new BackgroundPanel("GlobalBank/icons/Man.jpg");
         backgroundPanel.setLayout(null); 
         setContentPane(backgroundPanel);
 
-        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("GlobalBank/icons/banking.jpeg"));
+        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("GlobalBank/icons/banking.png"));
         Image i2 = i1.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT);
         ImageIcon i3 = new ImageIcon(i2);
         JLabel l11 = new JLabel(i3);
@@ -31,7 +30,7 @@ public class ManagerLogin extends JFrame implements ActionListener {
         l1.setBounds(150, 40, 600, 40);
         backgroundPanel.add(l1);
 
-        l2 = new JLabel("Card No:");
+        l2 = new JLabel("Employee Id:");
         l2.setFont(new Font("Raleway", Font.BOLD, 28));
         l2.setBounds(125, 150, 375, 30);
         backgroundPanel.add(l2);
@@ -41,7 +40,7 @@ public class ManagerLogin extends JFrame implements ActionListener {
         tf1.setFont(new Font("Arial", Font.BOLD, 14));
         backgroundPanel.add(tf1);
 
-        l3 = new JLabel("PIN:");
+        l3 = new JLabel("Password:");
         l3.setFont(new Font("Raleway", Font.BOLD, 28));
         l3.setBounds(125, 220, 375, 30);
         backgroundPanel.add(l3);
@@ -58,8 +57,8 @@ public class ManagerLogin extends JFrame implements ActionListener {
         b2 = new JButton("CLEAR");
         b2.setBackground(Color.BLACK);
         b2.setForeground(Color.WHITE);
-
-        b3 = new JButton("SIGN UP");
+        
+        b3 = new JButton("BACK");   
         b3.setBackground(Color.BLACK);
         b3.setForeground(Color.WHITE);
 
@@ -71,13 +70,13 @@ public class ManagerLogin extends JFrame implements ActionListener {
         b2.setBounds(430, 300, 100, 30);
         backgroundPanel.add(b2);
 
-        b3.setFont(new Font("Arial", Font.BOLD, 14));
-        b3.setBounds(300, 350, 230, 30);
+        b3.setFont(new Font("Arial", Font.BOLD, 14));   
+        b3.setBounds(560, 300, 100, 30);   
         backgroundPanel.add(b3);
 
         b1.addActionListener(this);
         b2.addActionListener(this);
-        b3.addActionListener(this);
+        b3.addActionListener(this);   
 
         setSize(800, 480);
         setLocation(550, 200);
@@ -89,9 +88,9 @@ public class ManagerLogin extends JFrame implements ActionListener {
         try {        
             if (ae.getSource() == b1) {
                 Conn c1 = new Conn();
-                String cardno = tf1.getText();
-                String pin = pf2.getText();
-                String q = "select * from login where cardno = '" + cardno + "' and pin = '" + pin + "'";
+                String Emp_Id = tf1.getText();
+                String Pwd = pf2.getText();
+                String q = "select * from login where cardno = '" + Emp_Id + "' and Pwd = '" + Pwd + "'";
 
                 ResultSet rs = c1.s.executeQuery(q);
                 if (rs.next()) {
@@ -103,9 +102,9 @@ public class ManagerLogin extends JFrame implements ActionListener {
             } else if (ae.getSource() == b2) {
                 tf1.setText("");
                 pf2.setText("");
-            } else if (ae.getSource() == b3) {
-                setVisible(false);
-                new Signup().setVisible(true);
+            } else if (ae.getSource() == b3) {   
+                setVisible(false);   
+                new Main().setVisible(true);   
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -116,7 +115,7 @@ public class ManagerLogin extends JFrame implements ActionListener {
         new ManagerLogin().setVisible(true);
     }
 
-    // Custom JPanel class to handle background image
+     
     class BackgroundPanel extends JPanel {
         private Image backgroundImage;
 

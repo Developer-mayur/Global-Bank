@@ -9,7 +9,7 @@ public class Login extends JFrame implements ActionListener {
     JLabel l1, l2, l3;
     JTextField tf1;
     JPasswordField pf2;
-    JButton b1, b2, b3;
+    JButton b1, b2, b3,b4;
 
     Login() {
         setTitle("CUSTOMER LOGIN");
@@ -19,7 +19,7 @@ public class Login extends JFrame implements ActionListener {
         backgroundPanel.setLayout(null); 
         setContentPane(backgroundPanel);
 
-        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("GlobalBank/icons/banking.jpeg"));
+        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("GlobalBank/icons/banking.png"));
         Image i2 = i1.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT);
         ImageIcon i3 = new ImageIcon(i2);
         JLabel l11 = new JLabel(i3);
@@ -33,7 +33,7 @@ public class Login extends JFrame implements ActionListener {
 
         l2 = new JLabel("Card No:");
         l2.setFont(new Font("Raleway", Font.BOLD, 28));
-        l2.setBounds(125, 150, 375, 30);
+        l2.setBounds(180, 150, 375, 30);
         backgroundPanel.add(l2);
 
         tf1 = new JTextField(15);
@@ -43,7 +43,7 @@ public class Login extends JFrame implements ActionListener {
 
         l3 = new JLabel("PIN:");
         l3.setFont(new Font("Raleway", Font.BOLD, 28));
-        l3.setBounds(125, 220, 375, 30);
+        l3.setBounds(220, 220, 375, 30);
         backgroundPanel.add(l3);
 
         pf2 = new JPasswordField(15);
@@ -62,22 +62,31 @@ public class Login extends JFrame implements ActionListener {
         b3 = new JButton("SIGN UP");
         b3.setBackground(Color.BLACK);
         b3.setForeground(Color.WHITE);
+        
+        b4 = new JButton("BACK");  
+        b4.setBackground(Color.BLACK);
+        b4.setForeground(Color.WHITE);
 
         b1.setFont(new Font("Arial", Font.BOLD, 14));
-        b1.setBounds(300, 300, 100, 30);
+        b1.setBounds(150, 300, 100, 30);
         backgroundPanel.add(b1);
 
         b2.setFont(new Font("Arial", Font.BOLD, 14));
-        b2.setBounds(430, 300, 100, 30);
+        b2.setBounds(350, 300, 100, 30);
         backgroundPanel.add(b2);
 
         b3.setFont(new Font("Arial", Font.BOLD, 14));
         b3.setBounds(300, 350, 230, 30);
         backgroundPanel.add(b3);
+        
+        b4.setFont(new Font("Arial", Font.BOLD, 14));   
+        b4.setBounds(550, 300, 100, 30);   
+        backgroundPanel.add(b4);
 
         b1.addActionListener(this);
         b2.addActionListener(this);
         b3.addActionListener(this);
+        b4.addActionListener(this);  
 
         setSize(800, 480);
         setLocation(550, 200);
@@ -106,6 +115,9 @@ public class Login extends JFrame implements ActionListener {
             } else if (ae.getSource() == b3) {
                 setVisible(false);
                 new Signup().setVisible(true);
+            }else if (ae.getSource() == b4) {   
+                setVisible(false);   
+                new Main().setVisible(true);   
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -116,7 +128,7 @@ public class Login extends JFrame implements ActionListener {
         new Login().setVisible(true);
     }
 
-    // Custom JPanel class to handle background image
+     
     class BackgroundPanel extends JPanel {
         private Image backgroundImage;
 
