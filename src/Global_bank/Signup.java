@@ -9,8 +9,8 @@ import java.util.*;
 
 public class Signup extends JFrame implements ActionListener{
     
-    JLabel l1,l2,l3,l4,l5,l6,l7,l8,l9,l10,l11,l12,l13,l14,l15;
-    JTextField t1,t2,t3,t4,t5,t6,t7;
+    JLabel l1,l2,l3,l4,l5,l6,l7,l8,l9,l10,l11,l12,l13,l14,l15,l16;
+    JTextField t1,t2,t3,t4,t5,t6,t7,t8;
     JRadioButton r1,r2,r3,r4,r5;
     JButton b,b1;
     JDateChooser dateChooser;
@@ -23,11 +23,11 @@ public class Signup extends JFrame implements ActionListener{
     Signup(){
         
         setTitle("NEW ACCOUNT APPLICATION FORM");
-         Signup.BackgroundPanel backgroundPanel = new Signup.BackgroundPanel("GlobalBank/icons/g.png");
+         Signup.BackgroundPanel backgroundPanel = new Signup.BackgroundPanel("");
         backgroundPanel.setLayout(null); 
         setContentPane(backgroundPanel);
         
-        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("GlobalBank/icons/banking.png"));
+        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource(""));
         Image i2 = i1.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT);
         ImageIcon i3 = new ImageIcon(i2);
         JLabel l11 = new JLabel(i3);
@@ -58,7 +58,7 @@ public class Signup extends JFrame implements ActionListener{
         l8 = new JLabel("Marital Status:");
         l8.setFont(new Font("Raleway", Font.BOLD, 20));
         
-        l9 = new JLabel("Address:");
+        l9 = new JLabel("Phone No:");
         l9.setFont(new Font("Raleway", Font.BOLD, 20));
         
         l10 = new JLabel("City:");
@@ -67,8 +67,11 @@ public class Signup extends JFrame implements ActionListener{
         l11 = new JLabel("Pin Code:");
         l11.setFont(new Font("Raleway", Font.BOLD, 20));
         
-        l12 = new JLabel("State:");
+        l12 = new JLabel("Adress:");
         l12.setFont(new Font("Raleway", Font.BOLD, 20));
+        
+        l16 = new JLabel("State:");
+        l16.setFont(new Font("Raleway", Font.BOLD, 20));
         
         l13 = new JLabel("Date");
         l13.setFont(new Font("Raleway", Font.BOLD, 14));
@@ -101,7 +104,8 @@ public class Signup extends JFrame implements ActionListener{
         t7 = new JTextField();
         t7.setFont(new Font("Raleway", Font.BOLD, 14));
         
-       
+        t8 = new JTextField();
+        t8.setFont(new Font("Raleway", Font.BOLD, 14));
         
         b = new JButton("Next");
         b1 = new JButton("back");
@@ -221,13 +225,20 @@ public class Signup extends JFrame implements ActionListener{
         l12.setBounds(100,590,200,30);
         add(l12);
         
+        
+        l16.setBounds(100,640,200,30);
+        add(l16);
+        
         t7.setBounds(300,590,400,30);
         add(t7);
         
-        b.setBounds(620,660,80,30);
+        t8.setBounds(300,640,400,30);
+        add(t8);
+        
+        b.setBounds(620,700,80,30);
         add(b);
         
-        b1.setBounds(320,660,80,30);
+        b1.setBounds(320,700,80,30);
         add(b1);
 
         
@@ -243,7 +254,8 @@ public class Signup extends JFrame implements ActionListener{
     
     public void actionPerformed(ActionEvent ae){
         
-        String formno = first;
+       if(validateData1()){
+        String User_Id = first;
         String name = t1.getText();
         String fname = t2.getText();
         String dob = ((JTextField) dateChooser.getDateEditor().getUiComponent()).getText();
@@ -264,35 +276,69 @@ public class Signup extends JFrame implements ActionListener{
             marital = "Other";
         }
            
-        String address = t4.getText();
+        String contact = t4.getText();
         String city = t5.getText();
         String pincode = t6.getText();
-        String state = t7.getText();
+        String address = t7.getText();
+        String state = t8.getText();
         
 
         try{
-           
-            if(t6.getText().equals("")){
-                JOptionPane.showMessageDialog(null, "Fill all the required fields");
-            }else{
-//                Conn c1 = new Conn();
-//                String q1 = "insert into signup values('"+formno+"','"+name+"','"+fname+"','"+dob+"','"+gender+"','"+email+"','"+marital+"','"+address+"','"+city+"','"+pincode+"','"+state+"')";
-//              c1.s.executeUpdate(q1);
+                Conn c1 = new Conn();
+                String q1 = "insert into Custmor  values('" + User_Id + "','" + name + "','" + fname + "','" + dob + "','" + gender + "','" + email + "','" + marital + "','" + contact + "','" + city + "','" + pincode + "','" + address + "','" + state + "')";
+                   c1.s.executeUpdate(q1);
                 
                 new Signup2(first).setVisible(true);
                 setVisible(false);
-            }
+          
             
         }catch(Exception e){
              e.printStackTrace();
         }
         
     }
+}
     
+    private boolean validateData1(){
+        if(t1.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(this,"Enter NAme");
+            return false;
+        }if(t2.getText().trim().isEmpty()){
+             JOptionPane.showMessageDialog(Signup.this,"Enter Father Name");
+            return false;
+        }if(!(r1.isSelected()||r2.isSelected())){
+            JOptionPane.showMessageDialog(Signup.this,"Select Gender");
+        }
+        if(t3.getText().trim().isEmpty()){
+             JOptionPane.showMessageDialog(Signup.this,"Enter EMail");
+           return false; 
+        }if(t7.getText().trim().isEmpty()){
+             JOptionPane.showMessageDialog(Signup.this,"Enter Address");
+           return false; 
+        }if(t5.getText().trim().isEmpty()){
+             JOptionPane.showMessageDialog(Signup.this,"Enter city");
+           return false; 
+        }if(t6.getText().trim().isEmpty()){
+             JOptionPane.showMessageDialog(Signup.this,"Check PinCode");
+           return false; 
+        }if(t8.getText().trim().isEmpty()){
+             JOptionPane.showMessageDialog(Signup.this,"Eneter State Name");
+           return false; 
+        }if(t4.getText().trim().isEmpty()||(!checkContact())){
+             JOptionPane.showMessageDialog(Signup.this,"Enter Phone No");
+           return false; 
+        }
+        return true;
+    }
+    
+    private boolean checkContact(){
+         return t4.getText().matches("\\d{1,16}")&&t4.getText().length()==10;  
+    }
     
     public static void main(String[] args){
         new Signup().setVisible(true);
     }
+    
     class BackgroundPanel extends JPanel {
         private Image backgroundImage;
 

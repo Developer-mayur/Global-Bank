@@ -87,18 +87,18 @@ public class ManagerLogin extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         try {        
             if (ae.getSource() == b1) {
-                Conn c1 = new Conn();
-                String Emp_Id = tf1.getText();
-                String Pwd = pf2.getText();
-                String q = "select * from login where cardno = '" + Emp_Id + "' and Pwd = '" + Pwd + "'";
+//                Conn c1 = new Conn();
+//                String Emp_Id = tf1.getText();
+//                String Pwd = pf2.getText();
+//                String q = "select * from login where cardno = '" + Emp_Id + "' and Pwd = '" + Pwd + "'";
 
-                ResultSet rs = c1.s.executeQuery(q);
-                if (rs.next()) {
-                    setVisible(false);
-                    new Transactions(pin).setVisible(true);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Incorrect Card Number or PIN");
-                }
+//                ResultSet rs = c1.s.+executeQuery(q);
+//                if (rs.next()) {
+//                    setVisible(false);
+//                    new Transactions(pin).setVisible(true);
+//                } else {
+//                    JOptionPane.showMessageDialog(null, "Incorrect Card Number or PIN");
+//                }
             } else if (ae.getSource() == b2) {
                 tf1.setText("");
                 pf2.setText("");

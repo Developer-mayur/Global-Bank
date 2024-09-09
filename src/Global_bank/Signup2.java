@@ -13,7 +13,7 @@ public class Signup2 extends JFrame implements ActionListener{
     JRadioButton r1,r2,r3,r4;
     JTextField t1,t2,t3;
     JComboBox c1,c2,c3,c4,c5;
-    String formno;
+    String User_Id;
     Signup2(String formno){
          Signup2.BackgroundPanel backgroundPanel = new Signup2.BackgroundPanel("GlobalBank/icons/g.png");
         backgroundPanel.setLayout(null); 
@@ -26,7 +26,7 @@ public class Signup2 extends JFrame implements ActionListener{
         add(l14);
         
         
-        this.formno = formno;
+        this.User_Id = User_Id;
         setTitle("NEW ACCOUNT APPLICATION FORM - PAGE 2");
         
         l1 = new JLabel("Page 2: Additonal Details");
