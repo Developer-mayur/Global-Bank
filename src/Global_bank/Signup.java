@@ -12,7 +12,7 @@ public class Signup extends JFrame implements ActionListener{
     JLabel l1,l2,l3,l4,l5,l6,l7,l8,l9,l10,l11,l12,l13,l14,l15;
     JTextField t1,t2,t3,t4,t5,t6,t7;
     JRadioButton r1,r2,r3,r4,r5;
-    JButton b;
+    JButton b,b1;
     JDateChooser dateChooser;
     
     
@@ -104,6 +104,10 @@ public class Signup extends JFrame implements ActionListener{
        
         
         b = new JButton("Next");
+        b1 = new JButton("back");
+        b1.setFont(new Font("Raleway", Font.BOLD, 14));
+        b1.setBackground(Color.BLACK);
+        b1.setForeground(Color.WHITE);
         b.setFont(new Font("Raleway", Font.BOLD, 14));
         b.setBackground(Color.BLACK);
         b.setForeground(Color.WHITE);
@@ -223,8 +227,13 @@ public class Signup extends JFrame implements ActionListener{
         b.setBounds(620,660,80,30);
         add(b);
         
-        b.addActionListener(this); 
+        b1.setBounds(320,660,80,30);
+        add(b1);
+
         
+        b.addActionListener(this); 
+        b1.addActionListener(this); 
+
         getContentPane().setBackground(Color.WHITE);
         
         setSize(850,800);
