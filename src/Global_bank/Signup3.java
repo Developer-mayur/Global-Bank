@@ -205,9 +205,9 @@ public class Signup3 extends JFrame implements ActionListener{
                 }else{
                     Conn c1 = new Conn();
                     String q1 = "insert into Custmorvalue values('"+User_Id+"','"+atype+"','"+cardno+"','"+pin+"')";  
-                    String q2 = "insert into login values('"+User_Id+"','"+cardno+"','"+pin+"')";
+                    
                     c1.s.executeUpdate(q1);
-                    c1.s.executeUpdate(q2);
+                    
                     JOptionPane.showMessageDialog(null, "Card Number: " + cardno + "\n Pin:"+ pin);
                     
 //                    new Deposit(pin).setVisible(true);

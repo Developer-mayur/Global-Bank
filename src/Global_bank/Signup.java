@@ -263,6 +263,7 @@ public class Signup extends JFrame implements ActionListener{
                 String q1 = "INSERT INTO Custmor VALUES ('" + User_Id + "', '" + name + "', '" + fname + "', '" + dob + "', '" + gender + "', '" + email + "', '" + marital + "', '" + contact + "', '" + city + "', '" + pincode + "', '" + address + "', '" + state + "')";
 
                   c1.s.executeUpdate(q1);
+                  JOptionPane.showMessageDialog(null,"success");
                 new Signup2(first).setVisible(true);
                 setVisible(false);
 

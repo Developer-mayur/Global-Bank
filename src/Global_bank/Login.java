@@ -101,7 +101,7 @@ public class Login extends JFrame implements ActionListener {
                 Conn c1 = new Conn();
                 String cardno = tf1.getText();
                 String pin = pf2.getText();
-                String q = "select * from login where cardno = '" + cardno + "' and pin = '" + pin + "'";
+                String q = "select * from Custmorvalue where cardno = '" + cardno + "' and pin = '" + pin + "'";
 
                 ResultSet rs = c1.s.executeQuery(q);
                 if (rs.next()) {
