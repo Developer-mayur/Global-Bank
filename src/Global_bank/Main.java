@@ -69,7 +69,7 @@ public class Main extends JFrame implements ActionListener {
 
     class BackgroundPanel extends JPanel {
         private Image backgroundImage;
-        private float alpha = 0.5f; // Transparency level (0.0f is fully transparent, 1.0f is fully opaque)
+        private float alpha = 0.6f;  
 
         public BackgroundPanel(String imagePath) {
             this.backgroundImage = new ImageIcon(ClassLoader.getSystemResource(imagePath)).getImage();

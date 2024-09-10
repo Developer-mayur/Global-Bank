@@ -9,12 +9,12 @@ import java.sql.*;
 public class Signup2 extends JFrame implements ActionListener{
     
     JLabel l1,l2,l3,l4,l5,l6,l7,l8,l9,l10,l11,l12,l13;
-    JButton b;
+    JButton b,b1;
     JRadioButton r1,r2,r3,r4;
     JTextField t1,t2,t3;
     JComboBox c1,c2,c3,c4,c5;
     String User_Id;
-    Signup2(String formno){
+    Signup2(String User_Id){
          Signup2.BackgroundPanel backgroundPanel = new Signup2.BackgroundPanel("GlobalBank/icons/g.png");
         backgroundPanel.setLayout(null); 
         setContentPane(backgroundPanel);
@@ -65,13 +65,18 @@ public class Signup2 extends JFrame implements ActionListener{
         l12 = new JLabel("Form No:");
         l12.setFont(new Font("Raleway", Font.BOLD, 13));
         
-        l13 = new JLabel(formno);
+        l13 = new JLabel(User_Id);
         l13.setFont(new Font("Raleway", Font.BOLD, 13));
         
         b = new JButton("Next");
         b.setFont(new Font("Raleway", Font.BOLD, 14));
         b.setBackground(Color.BLACK);
         b.setForeground(Color.WHITE);
+        
+        b1 = new JButton("Cancel");
+        b1.setFont(new Font("Raleway", Font.BOLD, 14));
+        b1.setBackground(Color.BLACK);
+        b1.setForeground(Color.WHITE);
         
         t1 = new JTextField();
         t1.setFont(new Font("Raleway", Font.BOLD, 14));
@@ -106,7 +111,7 @@ public class Signup2 extends JFrame implements ActionListener{
         c2.setBackground(Color.WHITE);
         c2.setFont(new Font("Raleway", Font.BOLD, 14));
         
-        String income[] = {"Null","<1,50,000","<2,50,000","<5,00,000","Upto 10,00,000","Above 10,00,000"};
+        String income[] = {"<1,50,000","<2,50,000","<5,00,000","Upto 10,00,000","Above 10,00,000"};
         c3 = new JComboBox(income);
         c3.setBackground(Color.WHITE);
         c3.setFont(new Font("Raleway", Font.BOLD, 14));
@@ -151,6 +156,8 @@ public class Signup2 extends JFrame implements ActionListener{
         
         c3.setBounds(350,220,320,30);
         add(c3);
+        
+          
         
         l5.setBounds(100,270,150,30);
         add(l5);
@@ -200,8 +207,11 @@ public class Signup2 extends JFrame implements ActionListener{
         b.setBounds(570,640,100,30);
         add(b);
         
-        b.addActionListener(this);
+        b1.setBounds(280,640,100,30);
+        add(b1);
         
+        b.addActionListener(this);
+        b1.addActionListener(this);
         getContentPane().setBackground(Color.WHITE);
         
         setSize(850,750);
@@ -235,16 +245,19 @@ public class Signup2 extends JFrame implements ActionListener{
         }
         
         try{
-            if(t2.getText().equals("")){
-                JOptionPane.showMessageDialog(null, "Fill all the required fields");
+            if(ae.getSource()==b1){
+              new Signup().setVisible(true);
+                 setVisible(false);
+
             }else{
                 Conn c1 = new Conn();
-                String q1 = "insert into signup2 values('"+formno+"','"+religion+"','"+category+"','"+income+"','"+education+"','"+occupation+"','"+pan+"','"+aadhar+"','"+scitizen+"','"+eaccount+"')";
-//                c1.s.executeUpdate(q1);
+                String q1 = "insert into Custmorinfo values('"+User_Id+"','"+religion+"','"+category+"','"+income+"','"+education+"','"+occupation+"','"+pan+"','"+aadhar+"','"+scitizen+"','"+eaccount+"')";
+                c1.s.executeUpdate(q1);
                 
-                new Signup3(formno).setVisible(true);
+                new Signup3(User_Id).setVisible(true);
                 setVisible(false);
             }
+            
                 
       
             
