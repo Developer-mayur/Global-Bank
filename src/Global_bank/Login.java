@@ -10,6 +10,7 @@ public class Login extends JFrame implements ActionListener {
     JTextField tf1;
     JPasswordField pf2;
     JButton b1, b2, b3,b4;
+     String User_Id;
 
     Login() {
         setTitle("CUSTOMER LOGIN");
@@ -31,7 +32,7 @@ public class Login extends JFrame implements ActionListener {
         l1.setBounds(150, 40, 600, 40);
         backgroundPanel.add(l1);
 
-        l2 = new JLabel("Card No:");
+        l2 = new JLabel("User_Id:");
         l2.setFont(new Font("Raleway", Font.BOLD, 28));
         l2.setBounds(180, 150, 375, 30);
         backgroundPanel.add(l2);
@@ -99,16 +100,23 @@ public class Login extends JFrame implements ActionListener {
             if (ae.getSource() == b1) {
                 
                 Conn c1 = new Conn();
-                String cardno = tf1.getText();
+                String User_Id = tf1.getText();
                 String pin = pf2.getText();
-                String q = "select * from Custmorvalue where cardno = '" + cardno + "' and pin = '" + pin + "'";
+//                String cardno="";
+                String q = "select cardno from Custmorvalue where User_Id = '" + User_Id + "' and pin = '" + pin + "'";
 
+                
                 ResultSet rs = c1.s.executeQuery(q);
                 if (rs.next()) {
+                    
+                    String cardno2=rs.getString("cardno");
+                    System.out.print(cardno2);
+                     new Dashboard(cardno2).setVisible(true);
+                     
                     setVisible(false);
-                    new page4().setVisible(true);
+                   
                 } else {
-                    JOptionPane.showMessageDialog(null, "Incorrect Card Number or PIN");
+                    JOptionPane.showMessageDialog(null, "Incorrect User_Id or PIN");
                 }
                 
              } else if (ae.getSource() == b2) {
