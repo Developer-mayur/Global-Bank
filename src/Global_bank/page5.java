@@ -21,7 +21,7 @@ public class page5 extends javax.swing.JFrame {
     public page5(String User_Id) {
         initComponents();
         this.User_Id=User_Id;
-        Deposite();
+      
          
     }
 
@@ -43,9 +43,9 @@ public class page5 extends javax.swing.JFrame {
         jToggleButton1 = new javax.swing.JToggleButton();
         jButton5 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        txtAddAmount = new javax.swing.JTextField();
+        a1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        a2 = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
         btnAddAmount = new javax.swing.JButton();
 
@@ -144,26 +144,26 @@ public class page5 extends javax.swing.JFrame {
         jLabel2.setText("Add Amount");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(366, 151, 180, 43));
 
-        txtAddAmount.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtAddAmount.addActionListener(new java.awt.event.ActionListener() {
+        a1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        a1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAddAmountActionPerformed(evt);
+                a1ActionPerformed(evt);
             }
         });
-        jPanel1.add(txtAddAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(575, 151, 195, 43));
+        jPanel1.add(a1, new org.netbeans.lib.awtextra.AbsoluteConstraints(575, 151, 195, 43));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("PIN");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, 131, 44));
 
-        jPasswordField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+        a2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        a2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
+                a2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(575, 240, 195, 44));
+        jPanel1.add(a2, new org.netbeans.lib.awtextra.AbsoluteConstraints(575, 240, 195, 44));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -172,7 +172,12 @@ public class page5 extends javax.swing.JFrame {
 
         btnAddAmount.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         btnAddAmount.setText("Proceed");
-        jPanel1.add(btnAddAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 330, 130, 40));
+        btnAddAmount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddAmountActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnAddAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 330, 140, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -197,9 +202,9 @@ new page7(User_Id).setVisible(true);
 new Login().setVisible(true);
                 setVisible(false);    }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void txtAddAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddAmountActionPerformed
+    private void a1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddAmountActionPerformed
+    }//GEN-LAST:event_a1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 new page6(User_Id).setVisible(true);
@@ -215,30 +220,34 @@ new page6(User_Id).setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+    private void a2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a2ActionPerformed
+     }//GEN-LAST:event_a2ActionPerformed
+
+    private void btnAddAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddAmountActionPerformed
+         Deposite(User_Id); 
+    }//GEN-LAST:event_btnAddAmountActionPerformed
 
     
-    void Deposite(){
+    void Deposite(String  User_Id){
     
      try{        
-            String amount = t1.getText();
-            Date date = new Date();
-            if(ae.getSource()==b1){
-                if(t1.getText().equals("")){
-                    JOptionPane.showMessageDialog(null, "Please enter the Amount to you want to Deposit");
-                }else{
+             
+            
+                {
+                                 Date date = new Date();
+                                 String pin=a2.getText();
+                                 String  amount= a1.getText();
                     Conn c1 = new Conn();
-                    c1.s.executeUpdate("insert into bank values('"+pin+"', '"+date+"', 'Deposit', '"+amount+"')");
+                    c1.s.executeUpdate("insert into Transactions values('"+pin+"', '"+date+"', 'Deposit', '"+amount+"'");
+      
+                     
                     JOptionPane.showMessageDialog(null, "Rs. "+amount+" Deposited Successfully");
+                    new page5(User_Id).setVisible(true);
                     setVisible(false);
-                    new Transactions(pin).setVisible(true);
-                }
-            }else if(ae.getSource()==b2){
-                setVisible(false);
-                new Transactions(pin).setVisible(true);
-            }
+                    
+                } if(a1.getText().equals("")&&a2.getText().equals("")){
+                    JOptionPane.showMessageDialog(null, "Please enter the Amount to you want to Deposit");
+                }         
         }catch(Exception e){
             e.printStackTrace();
         }}
@@ -279,6 +288,8 @@ new page6(User_Id).setVisible(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField a1;
+    private javax.swing.JPasswordField a2;
     private javax.swing.JButton btnAddAmount;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -290,8 +301,6 @@ new page6(User_Id).setVisible(true);
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JTextField txtAddAmount;
     // End of variables declaration//GEN-END:variables
 }
