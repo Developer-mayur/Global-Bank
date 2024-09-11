@@ -48,11 +48,9 @@ public class Dashboard extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jToggleButton3 = new javax.swing.JToggleButton();
-        jToggleButton4 = new javax.swing.JToggleButton();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jToggleButton5 = new javax.swing.JToggleButton();
-        jToggleButton6 = new javax.swing.JToggleButton();
         jToggleButton2 = new javax.swing.JToggleButton();
         jToggleButton8 = new javax.swing.JToggleButton();
         jToggleButton7 = new javax.swing.JToggleButton();
@@ -88,10 +86,6 @@ public class Dashboard extends javax.swing.JFrame {
         });
         jPanel1.add(jToggleButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, 130, 40));
 
-        jToggleButton4.setSelected(true);
-        jToggleButton4.setText("savings");
-        jPanel1.add(jToggleButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 430, 130, 50));
-
         jPanel5.setBackground(new java.awt.Color(51, 0, 51));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -118,10 +112,6 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
         jPanel5.add(jToggleButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 710, 100, 30));
-
-        jToggleButton6.setSelected(true);
-        jToggleButton6.setText("Loan");
-        jPanel5.add(jToggleButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 570, 120, 50));
 
         jToggleButton2.setSelected(true);
         jToggleButton2.setText("Deposite");
@@ -441,9 +431,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField5;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JToggleButton jToggleButton3;
-    private javax.swing.JToggleButton jToggleButton4;
     private javax.swing.JToggleButton jToggleButton5;
-    private javax.swing.JToggleButton jToggleButton6;
     private javax.swing.JToggleButton jToggleButton7;
     private javax.swing.JToggleButton jToggleButton8;
     private javax.swing.JTextField t1;

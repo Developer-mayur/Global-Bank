@@ -96,22 +96,34 @@ public class Login extends JFrame implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent ae) {
-        try {        
-            if (ae.getSource() == b1) {
-                
-                Conn c1 = new Conn();
-                String User_Id = tf1.getText();
-                String pin = pf2.getText();
-//                String cardno="";
-                String q = "select cardno from Custmorvalue where User_Id = '" + User_Id + "' and pin = '" + pin + "'";
-
-                
-                     
-                     new Dashboard(User_Id).setVisible(true);
-                     
+    try {        
+        if (ae.getSource() == b1) {
+            Conn c1 = new Conn();
+            String User_Id = tf1.getText();
+            String pin = pf2.getText();
+            
+            ResultSet rs = c1.s.executeQuery("select cardno, User_Id, Pin from Custmorvalue where User_Id = '" + User_Id + "' and pin = '" + pin + "'");
+            
+            boolean correct = false;  
+            while (rs.next()) {
+                if (rs.getString("User_Id").equals(User_Id) && rs.getString("Pin").equals(pin)) {
+                    correct = true; 
+                    new Dashboard(User_Id).setVisible(true);
                     setVisible(false);
-                   
-                } else 
+                    break;
+                }
+            }
+            
+            if (!correct) {  
+                JOptionPane.showMessageDialog(null, "Incorrect User_Id or PIN");
+            }
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
+
+            
             if (ae.getSource() == b2) {
                 tf1.setText("");
                 pf2.setText("");
@@ -122,15 +134,11 @@ public class Login extends JFrame implements ActionListener {
             else if (ae.getSource() == b4) {   
                 setVisible(false);   
                 new Main().setVisible(true);   
-            }else{
-                    JOptionPane.showMessageDialog(null, "Incorrect User_Id or PIN");
-                }
+            } 
             
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+         
     }
-
+  
     public static void main(String[] args) {
         new Login().setVisible(true);
     }

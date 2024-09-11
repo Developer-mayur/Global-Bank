@@ -47,21 +47,16 @@ public class ManagerDashboard extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jToggleButton3 = new javax.swing.JToggleButton();
-        jToggleButton4 = new javax.swing.JToggleButton();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jToggleButton5 = new javax.swing.JToggleButton();
-        jToggleButton6 = new javax.swing.JToggleButton();
         jToggleButton2 = new javax.swing.JToggleButton();
         jToggleButton8 = new javax.swing.JToggleButton();
         jToggleButton7 = new javax.swing.JToggleButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        Balance = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txtcardno = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -72,17 +67,13 @@ public class ManagerDashboard extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jToggleButton3.setSelected(true);
-        jToggleButton3.setText("Transfer");
+        jToggleButton3.setText("salary");
         jToggleButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton3ActionPerformed(evt);
             }
         });
         jPanel1.add(jToggleButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, 130, 40));
-
-        jToggleButton4.setSelected(true);
-        jToggleButton4.setText("savings");
-        jPanel1.add(jToggleButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 430, 130, 50));
 
         jPanel5.setBackground(new java.awt.Color(51, 0, 51));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -111,12 +102,8 @@ public class ManagerDashboard extends javax.swing.JFrame {
         });
         jPanel5.add(jToggleButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 710, 100, 30));
 
-        jToggleButton6.setSelected(true);
-        jToggleButton6.setText("Loan");
-        jPanel5.add(jToggleButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 570, 120, 50));
-
         jToggleButton2.setSelected(true);
-        jToggleButton2.setText("Deposite");
+        jToggleButton2.setText("money");
         jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton2ActionPerformed(evt);
@@ -159,44 +146,11 @@ public class ManagerDashboard extends javax.swing.JFrame {
         jPanel2.add(jPanel4);
         jPanel4.setBounds(0, 30, 0, 370);
 
-        Balance.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        Balance.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        Balance.setText(" ");
-        Balance.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BalanceActionPerformed(evt);
-            }
-        });
-        jPanel2.add(Balance);
-        Balance.setBounds(610, 250, 200, 59);
-
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Balance");
+        jLabel4.setText("Dashboard");
         jPanel2.add(jLabel4);
-        jLabel4.setBounds(610, 170, 210, 90);
-
-        txtcardno.setBackground(new java.awt.Color(0, 153, 153));
-        txtcardno.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
-        txtcardno.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtcardno.setRequestFocusEnabled(false);
-        txtcardno.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentHidden(java.awt.event.ComponentEvent evt) {
-                txtcardnoComponentHidden(evt);
-            }
-        });
-        txtcardno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtcardnoActionPerformed(evt);
-            }
-        });
-        jPanel2.add(txtcardno);
-        txtcardno.setBounds(140, 230, 230, 28);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GlobalBank/icons/cp.jpg"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        jPanel2.add(jLabel1);
-        jLabel1.setBounds(80, 80, 370, 250);
+        jLabel4.setBounds(310, -20, 300, 90);
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 930, 380));
 
@@ -206,10 +160,6 @@ public class ManagerDashboard extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void BalanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BalanceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BalanceActionPerformed
 
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
        new page5(User_Id).setVisible(true);
@@ -234,14 +184,6 @@ public class ManagerDashboard extends javax.swing.JFrame {
         new ManagerDashboard(User_Id).setVisible(true);
                 setVisible(false);
     }//GEN-LAST:event_jToggleButton8ActionPerformed
-
-    private void txtcardnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcardnoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtcardnoActionPerformed
-
-    private void txtcardnoComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_txtcardnoComponentHidden
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtcardnoComponentHidden
 
      void setCardNo(){
      
@@ -330,8 +272,6 @@ public class ManagerDashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Balance;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
@@ -342,11 +282,8 @@ public class ManagerDashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JToggleButton jToggleButton3;
-    private javax.swing.JToggleButton jToggleButton4;
     private javax.swing.JToggleButton jToggleButton5;
-    private javax.swing.JToggleButton jToggleButton6;
     private javax.swing.JToggleButton jToggleButton7;
     private javax.swing.JToggleButton jToggleButton8;
-    private javax.swing.JTextField txtcardno;
     // End of variables declaration//GEN-END:variables
 }

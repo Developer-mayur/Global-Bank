@@ -98,6 +98,8 @@ public class ManagerLogin extends JFrame implements ActionListener {
 //                    new Transactions(pin).setVisible(true);
 //                } else {
 //                    JOptionPane.showMessageDialog(null, "Incorrect Card Number or PIN");
+                                new ManagerDashboard("").setVisible(true);
+                                        setVisible(true);
 //                }
             } else if (ae.getSource() == b2) {
                 tf1.setText("");
