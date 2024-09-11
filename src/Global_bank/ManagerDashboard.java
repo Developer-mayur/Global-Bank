@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  *
  * @author hp
  */
-public class Dashboard extends javax.swing.JFrame {
+public class ManagerDashboard extends javax.swing.JFrame {
     
     
 
@@ -22,13 +22,12 @@ public class Dashboard extends javax.swing.JFrame {
      * Creates new form Dashboard
      */
     private String User_Id;
-    public Dashboard(String User_Id) {
+    public ManagerDashboard(String User_Id) {
 //        System.out.print(cardno);
         this.User_Id=User_Id;
         initComponents();
         setCardNo();
         setBalance();
-//        setTransections();
         
         
     }
@@ -64,13 +63,6 @@ public class Dashboard extends javax.swing.JFrame {
         txtcardno = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        t1 = new javax.swing.JTextField();
-        t2 = new javax.swing.JTextField();
-        t3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        t4 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 204, 204));
@@ -210,50 +202,6 @@ public class Dashboard extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Recent Transections ");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, 270, -1));
-
-        t1.setText(" ");
-        jPanel3.add(t1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 620, 50));
-
-        t2.setText(" ");
-        t2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                t2ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(t2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 620, 50));
-
-        t3.setText(" ");
-        t3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                t3ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(t3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 620, 60));
-
-        jTextField4.setText("jTextField3");
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 620, 50));
-
-        jTextField5.setText(" ");
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 620, 50));
-
-        t4.setText(" ");
-        jPanel3.add(t4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 620, 50));
-
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 400, 920, 360));
 
         pack();
@@ -283,7 +231,7 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jToggleButton7ActionPerformed
 
     private void jToggleButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton8ActionPerformed
-        new Dashboard(User_Id).setVisible(true);
+        new ManagerDashboard(User_Id).setVisible(true);
                 setVisible(false);
     }//GEN-LAST:event_jToggleButton8ActionPerformed
 
@@ -294,22 +242,6 @@ public class Dashboard extends javax.swing.JFrame {
     private void txtcardnoComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_txtcardnoComponentHidden
         // TODO add your handling code here:
     }//GEN-LAST:event_txtcardnoComponentHidden
-
-    private void t2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_t2ActionPerformed
-
-    private void t3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_t3ActionPerformed
-
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
-
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
 
      void setCardNo(){
      
@@ -360,35 +292,6 @@ public class Dashboard extends javax.swing.JFrame {
         }
          
      }
-     
-//   void  setTransections(){
-//            try{
-//         
-//            Conn c4 = new Conn();
-//           
-//
-//                String q = "select Balance from Custmorvalue where User_Id = " + User_Id + "" ;
-//
-//   ResultSet rs1 = c4.s.executeQuery(q);
-//                if (rs1.next()) {
-//                    
-//                    String s=rs2.getString("Balance");
-//                    System.out.print(s);
-////                     new Dashboard(User_Id).setVisible(true);
-//                     
-////                    setVisible(false);                                            
-//               Balance.setText(b);
-//         Balance.setEditable(false);
-//         }
-//         } catch (Exception e) {
-//            e.printStackTrace();
-//        } 
-//       
-//       
-//   }    
-     
-     
-     
     /**
      * @param args the command line arguments
      */
@@ -407,20 +310,21 @@ public class Dashboard extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManagerDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManagerDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManagerDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManagerDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Dashboard("").setVisible(true);
+                new ManagerDashboard("").setVisible(true);
             }
         });
     }
@@ -429,7 +333,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JTextField Balance;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -437,8 +340,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JToggleButton jToggleButton3;
     private javax.swing.JToggleButton jToggleButton4;
@@ -446,10 +347,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JToggleButton jToggleButton6;
     private javax.swing.JToggleButton jToggleButton7;
     private javax.swing.JToggleButton jToggleButton8;
-    private javax.swing.JTextField t1;
-    private javax.swing.JTextField t2;
-    private javax.swing.JTextField t3;
-    private javax.swing.JTextField t4;
     private javax.swing.JTextField txtcardno;
     // End of variables declaration//GEN-END:variables
 }

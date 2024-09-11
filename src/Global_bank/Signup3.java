@@ -14,6 +14,7 @@ public class Signup3 extends JFrame implements ActionListener{
     JButton b1,b2;
     JCheckBox c1,c2,c3,c4,c5,c6,c7;
     String User_Id;
+    long Balance=0;
     Signup3(String User_Id){
         this.User_Id = User_Id;
         setTitle("NEW ACCOUNT APPLICATION FORM - PAGE 3");
@@ -204,11 +205,11 @@ public class Signup3 extends JFrame implements ActionListener{
                     JOptionPane.showMessageDialog(null, "Fill all the required fields");
                 }else{
                     Conn c1 = new Conn();
-                    String q1 = "insert into Custmorvalue values('"+User_Id+"','"+atype+"','"+cardno+"','"+pin+"')";  
+                    String q1 = "insert into Custmorvalue values('"+User_Id+"','"+atype+"','"+cardno+"','"+pin+"','"+Balance+"')";  
                     
                     c1.s.executeUpdate(q1);
                     
-                    JOptionPane.showMessageDialog(null, "Card Number: " + cardno + "\n Pin:"+ pin);
+                    JOptionPane.showMessageDialog(null, "Card Number: " + cardno + "\n Pin:"+ pin+"\n User_Id:"+ User_Id);
                     
 //                    new Deposit(pin).setVisible(true);
                     new Login().setVisible(true);

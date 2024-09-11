@@ -106,20 +106,13 @@ public class Login extends JFrame implements ActionListener {
                 String q = "select cardno from Custmorvalue where User_Id = '" + User_Id + "' and pin = '" + pin + "'";
 
                 
-                ResultSet rs = c1.s.executeQuery(q);
-                if (rs.next()) {
-                    
-                    String cardno2=rs.getString("cardno");
-                    System.out.print(cardno2);
-                     new Dashboard(cardno2).setVisible(true);
+                     
+                     new Dashboard(User_Id).setVisible(true);
                      
                     setVisible(false);
                    
-                } else {
-                    JOptionPane.showMessageDialog(null, "Incorrect User_Id or PIN");
-                }
-                
-             } else if (ae.getSource() == b2) {
+                } else 
+            if (ae.getSource() == b2) {
                 tf1.setText("");
                 pf2.setText("");
             } else if (ae.getSource() == b3) {
@@ -129,7 +122,10 @@ public class Login extends JFrame implements ActionListener {
             else if (ae.getSource() == b4) {   
                 setVisible(false);   
                 new Main().setVisible(true);   
-            }
+            }else{
+                    JOptionPane.showMessageDialog(null, "Incorrect User_Id or PIN");
+                }
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
